@@ -4,6 +4,7 @@ from logical_classes import *
 
 verbose = 0
 
+
 class KnowledgeBase(object):
     def __init__(self, facts=[], rules=[]):
         self.facts = facts
@@ -120,7 +121,7 @@ class KnowledgeBase(object):
         """Retract a fact from the KB
 
         Args:
-            fact (Fact) - Fact to be retracted
+            fact_or_rule (Fact|Rule) - Fact or Rule to be retracted
 
         Returns:
             None
@@ -128,7 +129,75 @@ class KnowledgeBase(object):
         printv("Retracting {!r}", 0, verbose, [fact_or_rule])
         ####################################################
         # Student code goes here
-        
+
+        # we can't retract arguments that aren't facts or rules
+        if not isinstance(fact_or_rule, Fact) and not isinstance(fact_or_rule, Rule):
+            print("Input isn't a fact or a rule!")
+            return
+
+        # we can't retract arguments that aren't in the kb
+        if fact_or_rule not in self.facts and fact_or_rule not in self.rules:
+            print("Didn't find input in knowledge base!")
+            return
+
+        # rule
+        if isinstance(fact_or_rule, Rule):
+            # find rule in kb to access support lists
+            rule = self._get_rule(fact_or_rule)
+            # we can't retract asserted rules
+            if rule.asserted:
+                print("Cannot retract asserted rule!")
+                return
+            rule = self._get_rule(fact_or_rule)
+            self.kb_retract_recursive(rule)
+
+        if isinstance(fact_or_rule, Fact):
+            fact = self._get_fact(fact_or_rule)
+            fact.asserted = False
+            self.kb_retract_recursive(fact)
+
+    def kb_retract_recursive(self, fact_or_rule):
+        """
+        Recursive helper function for kb_retract
+
+        Args:
+            fact_or_rule (Fact|Rule) - Fact or Rule to be retracted
+
+        Returns:
+            None
+        """
+        # fact
+        if isinstance(fact_or_rule, Fact):
+            # if there's no support for this fact, remove it and try to retract it's dependents
+            if len(fact_or_rule.supported_by) == 0:
+                # dependent rules
+                for r in fact_or_rule.supports_rules:
+                    for dependent in r.supported_by:
+                        r.supported_by.remove(dependent)
+                    self.kb_retract_recursive(r)
+                # dependent facts
+                for f in fact_or_rule.supports_facts:
+                    for dependent in f.supported_by:
+                        f.supported_by.remove(dependent)
+                    self.kb_retract_recursive(f)
+                self.facts.remove(fact_or_rule)
+        # rule
+        if isinstance(fact_or_rule, Rule):
+            # if there's no support for this rule, remove it and try to retract it's dependents
+            # make sure it's not an asserted rule!
+            if len(fact_or_rule.supported_by) == 0 and not fact_or_rule.asserted:
+                # dependent rules
+                for r in fact_or_rule.supports_rules:
+                    for dependent in r.supported_by:
+                        r.supported_by.remove(dependent)
+                    self.kb_retract_recursive(r)
+                # dependent facts
+                for f in fact_or_rule.supports_facts:
+                    for dependent in f.supported_by:
+                        f.supported_by.remove(dependent)
+                    self.kb_retract_recursive(f)
+                self.rules.remove(fact_or_rule)
+
 
 class InferenceEngine(object):
     def fc_infer(self, fact, rule, kb):
@@ -142,7 +211,50 @@ class InferenceEngine(object):
         Returns:
             Nothing            
         """
-        printv('Attempting to infer from {!r} and {!r} => {!r}', 1, verbose,
-            [fact.statement, rule.lhs, rule.rhs])
+        printv('Attempting to infer from {!r} and {!r} => {!r}', 1, verbose, [fact.statement, rule.lhs, rule.rhs])
         ####################################################
         # Student code goes here
+
+        # examine each rule in our KB, and check the first element of its LHS against this new fact
+        if isinstance(fact, Fact) and isinstance(rule, Rule):
+            # constant match found
+            if fact.statement == rule.lhs[0]:
+                if len(rule.lhs) == 1:
+                    kb.kb_add(Fact(rule.rhs), [fact, rule])
+                else:
+                    # constructor passes dependencies
+                    new_rule = lc.Rule([rule.lhs[1:], rule.rhs], [(fact, rule)])
+                    # foundational statements are linked to new rule
+                    rule.supports_rules.append(new_rule)
+                    fact.supports_rules.append(new_rule)
+                    # add new rule to kb
+                    kb.kb_add(new_rule)
+                    new_rule.asserted = False
+            # variable match found
+            v = match(fact.statement, rule.lhs[0])
+            if v:
+                #rule
+                if len(rule.lhs) > 1:
+                    new_left = []
+                    iter_lhs = iter(rule.lhs)
+                    next(iter_lhs)
+                    for s in iter_lhs:
+                        new_left.append(instantiate(s, v))
+                    # constructor passes dependencies
+                    new_rule = lc.Rule([new_left, instantiate(rule.rhs, v)], [(fact, rule)])
+                    # foundational statements are linked to new rule
+                    rule.supports_rules.append(new_rule)
+                    fact.supports_rules.append(new_rule)
+                    # add to kb
+                    kb.kb_add(new_rule)
+                    new_rule.asserted = False
+                #fact
+                else:
+                    # constructor passes dependencies
+                    new_fact = lc.Fact(instantiate(rule.rhs, v), [(fact, rule)])
+                    # foundational statements linked
+                    rule.supports_facts.append(new_fact)
+                    fact.supports_facts.append(new_fact)
+                    # add to kb
+                    kb.kb_add(new_fact)
+                    new_fact.asserted = False
