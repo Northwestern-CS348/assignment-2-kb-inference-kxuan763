@@ -145,11 +145,7 @@ class KnowledgeBase(object):
             # find rule in kb to access support lists
             rule = self._get_rule(fact_or_rule)
             # we can't retract asserted rules
-            if rule.asserted:
-                print("Cannot retract asserted rule!")
-                return
-            rule = self._get_rule(fact_or_rule)
-            self.kb_retract_recursive(rule)
+            return
 
         if isinstance(fact_or_rule, Fact):
             fact = self._get_fact(fact_or_rule)
