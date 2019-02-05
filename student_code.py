@@ -181,23 +181,6 @@ class KnowledgeBase(object):
                         f.supported_by.remove(dependent)
                     self.kb_retract_recursive(f)
                 self.facts.remove(fact_or_rule)
-        # rule
-        if isinstance(fact_or_rule, Rule):
-            # if there's no support for this rule, remove it and try to retract it's dependents
-            # make sure it's not an asserted rule!
-            if len(fact_or_rule.supported_by) == 0 and not fact_or_rule.asserted:
-                # dependent rules
-                for r in fact_or_rule.supports_rules:
-                    for dependent in r.supported_by:
-                        r.supported_by.remove(dependent)
-                    self.kb_retract_recursive(r)
-                # dependent facts
-                for f in fact_or_rule.supports_facts:
-                    for dependent in f.supported_by:
-                        f.supported_by.remove(dependent)
-                    self.kb_retract_recursive(f)
-                self.rules.remove(fact_or_rule)
-
 
 class InferenceEngine(object):
     def fc_infer(self, fact, rule, kb):
