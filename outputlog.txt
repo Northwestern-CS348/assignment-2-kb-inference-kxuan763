@@ -1,0 +1,182 @@
+TESTS WITH ERRORS 
+test1 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 20, in test1
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test10 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 276, in test10
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test11 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 302, in test11
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test12 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 341, in test12
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test13 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 363, in test13
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test14 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 391, in test14
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test3 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 52, in test3
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test4 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 77, in test4
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test5 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 115, in test5
+    KB.kb_assert(rule1)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test7 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 209, in test7
+    KB.kb_assert(rule2)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+test9 (gradingtests.UnitTests)
+Traceback (most recent call last):
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/gradingtests.py", line 255, in test9
+    KB.kb_assert(rule2)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 93, in kb_assert
+    self.kb_add(fact_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 228, in fc_infer
+    kb.kb_add(new_rule)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 76, in kb_add
+    self.ie.fc_infer(fact, fact_rule, self)
+  File "/Users/k2i/academics/automatedgradingapp/app/testing/kb-inference/student_code.py", line 202, in fc_infer
+    kb.kb_add(Fact(rule.rhs), [fact, rule])
+TypeError: kb_add() takes 2 positional arguments but 3 were given
+
+-------------------------------
+TESTS FAILED  
+-------------------------------
+TESTS SKIPPED 
+-------------------------------
